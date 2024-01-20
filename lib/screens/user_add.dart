@@ -67,7 +67,21 @@ class _AddUserState extends State {
                 height: 20.0,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  TextButton(
+                      style: TextButton.styleFrom(
+                          backgroundColor: Colors.red,
+                          ),
+                      onPressed: () {
+                        _userNameController.text = '';
+                        _userDescricaoController.text = '';
+                      },
+                      child: const Text('Limpar Dados',
+                          style: TextStyle(color: Colors.white))),
+                  const SizedBox(
+                    width: 10.0,
+                  ),
                   TextButton(
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.teal,
@@ -84,7 +98,6 @@ class _AddUserState extends State {
                         });
                         if (_validateName == false &&
                             _validateDescricao == false) {
-                           print("Good Data Can Save");
                           var user = User();
                           user.name = _userNameController.text;
                           user.description = _userDescricaoController.text;
@@ -93,22 +106,14 @@ class _AddUserState extends State {
                           }
                         }
                       },
-                      child: const Text('Salvar')),
+                      child: const Text('Salvar', style: TextStyle(
+                        color: Colors.white, fontSize: 15
+                      ),
+                      ),),
                   const SizedBox(
                     width: 10.0,
                   ),
-                  TextButton(
-                      style: TextButton.styleFrom(
-                    
-                          backgroundColor: Colors.red,
-                          textStyle: const TextStyle(fontSize: 15)),
-                      onPressed: () {
-                        _userNameController.text = '';
-             
-                        _userDescricaoController.text = '';
-                      },
-                      child: const Text('Limpar Dados',
-                          style: TextStyle(color: Colors.white)))
+                  
                 ],
               )
             ],

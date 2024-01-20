@@ -11,11 +11,9 @@ class ServicUser {
     return await _repository.insertData('usuarios', user.userMap());
   }
 
-
   readAllUsers() async {
     return await _repository.readData('usuarios');
   }
-
 
   UpdateUser(User user) async {
     return await _repository.updateData('usuarios', user.userMap());
